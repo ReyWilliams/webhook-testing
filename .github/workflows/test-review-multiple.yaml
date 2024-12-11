@@ -1,0 +1,26 @@
+name: Hello World Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world-1:
+    runs-on: ubuntu-22.04
+    environment: deployment-webhooks-dev
+    steps:
+    - name: Say Hello World
+      run: echo "Hello, world!"
+  hello-world-2:
+    needs: [hello-world-1]
+    runs-on: ubuntu-22.04
+    environment: deployment-webhooks-dev
+    steps:
+    - name: Say Hello World 2
+      run: echo "Hello, world (again)!"
+  hello-world-3:
+    needs: [hello-world-2]
+    runs-on: ubuntu-22.04
+    environment: deployment-webhooks-dev
+    steps:
+    - name: Say Hello World 3
+      run: echo "Hello, world (finally)!"
